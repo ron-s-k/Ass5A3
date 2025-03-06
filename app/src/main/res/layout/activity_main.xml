@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Emp Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Emp Address"
+        app:layout_constraintEnd_toEndOf="@id/name"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+    <EditText
+        android:id="@+id/phoneno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Emp Phone No"
+        app:layout_constraintEnd_toEndOf="@id/address"
+        app:layout_constraintStart_toStartOf="@id/address"
+        app:layout_constraintTop_toBottomOf="@id/address" />
+
+    <EditText
+        android:id="@+id/dep_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Department ID"
+        app:layout_constraintEnd_toEndOf="@id/phoneno"
+        app:layout_constraintStart_toStartOf="@id/address"
+        app:layout_constraintTop_toBottomOf="@id/phoneno"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Dep Location"
+        app:layout_constraintEnd_toEndOf="@id/dep_id"
+        app:layout_constraintStart_toStartOf="@id/dep_id"
+        app:layout_constraintTop_toBottomOf="@id/dep_id" />
+
+    <EditText
+        android:id="@+id/salary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Emp Salary"
+        app:layout_constraintEnd_toEndOf="@id/location"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/location"
+        app:layout_constraintTop_toBottomOf="@id/location" />
+
+    <EditText
+        android:id="@+id/dep_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Department name"
+        app:layout_constraintEnd_toEndOf="@id/location"
+        app:layout_constraintStart_toStartOf="@id/salary"
+        app:layout_constraintTop_toBottomOf="@id/salary" />
+    <Button
+        android:id="@+id/insertButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Insert Employee"
+        app:layout_constraintEnd_toEndOf="@id/phoneno"
+        app:layout_constraintStart_toStartOf="@id/dep_name"
+        app:layout_constraintTop_toBottomOf="@id/dep_name" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Show Employee"
+        android:id="@+id/showButton"
+        app:layout_constraintEnd_toEndOf="@+id/insertButton"
+        app:layout_constraintStart_toStartOf="@+id/insertButton"
+        app:layout_constraintTop_toBottomOf="@+id/insertButton"/>
+
+    <Button
+        android:id="@+id/btnShowDep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Show Department"
+        app:layout_constraintEnd_toEndOf="@+id/showButton"
+        app:layout_constraintStart_toStartOf="@+id/showButton"
+        app:layout_constraintTop_toBottomOf="@+id/showButton" />
+
+    <Button
+        android:id="@+id/insertDep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Insert Department"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowDep"
+        app:layout_constraintStart_toStartOf="@+id/btnShowDep"
+        app:layout_constraintTop_toBottomOf="@+id/btnShowDep" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
