@@ -2,6 +2,7 @@ package com.example.ass5a3;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
                 int dep_id_int = Integer.parseInt(dep_id);
                 // Insert employee data into the database
-                dbHelper.insertDataEmp(name, address, phone, salary, dep_id_int);
+                long result = dbHelper.insertDataEmp(name, address, phone, salary, dep_id_int);
+
+                Log.d("MainActivity", "result"+result);
+
+                Log.d("MainActivity", "name"+name);
+                Log.d("MainActivity", "address"+address);
+                Log.d("MainActivity", "phone"+phone);
+                Log.d("MainActivity", "salary"+salary);
+                Log.d("MainActivity", "dep_id"+dep_id_int);
 
                 // Clear input fields after insertion
                 etEmp_name.setText("");

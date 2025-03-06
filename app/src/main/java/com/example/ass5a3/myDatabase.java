@@ -29,7 +29,7 @@ public class myDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+EMPLOYEE_TABLE+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,ADDRESS TEXT,PHONE TEXT,SALARY TEXT,DEPARTMENT INTEGER, FOREIGN KEY(DEPARTMENT) REFERENCES DEPARTMENT(ID))");
+        db.execSQL("CREATE TABLE "+EMPLOYEE_TABLE+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,ADDRESS TEXT,PHONE TEXT,SALARY TEXT,DEPARTMENT INTEGER, FOREIGN KEY(DEPARTMENT) REFERENCES department(ID))");
         db.execSQL("CREATE TABLE "+DEPARTMENT_TABLE+"(ID INTEGER PRIMARY KEY ,NAME TEXT,LOCATION TEXT)");
     }
 
@@ -38,16 +38,23 @@ public class myDatabase extends SQLiteOpenHelper {
 
     }
 
-    public void insertDataEmp(String name,String address,String phone,String salary,int dep_id){
+    public long insertDataEmp(String name,String address,String phone,String salary,int dep_id){
         Log.d("myDatabase","insertDataEmp");
+        Log.d("myDatabase","name"+name);
+        Log.d("myDatabase","address"+address);
+        Log.d("myDatabase","phone"+phone);
+        Log.d("myDatabase","salary"+salary);
+        Log.d("myDatabase","dep_id"+dep_id);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        //cv.put(E_COLUMN_1,1);
         cv.put(E_COLUMN_2,name);
         cv.put(E_COLUMN_3,address);
         cv.put(E_COLUMN_4,phone);
         cv.put(E_COLUMN_5,salary);
         cv.put(E_COLUMN_6, dep_id);
-        db.insert(EMPLOYEE_TABLE,null,cv);
+        long result = db.insert(EMPLOYEE_TABLE,null,cv);
+        return result;
     }
 
     public void insertDataDep(int dep_id, String dep_name, String dep_loc){
