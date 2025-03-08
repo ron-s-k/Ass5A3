@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etEmp_name, etEmp_address, etEmp_phone, etEmp_salary, etDep_id, etDep_name, etDep_loc;
-    private Button btnInsert, btnShow, btnShowDep, btnInsertDep;
+    private Button btnInsert, btnShow, btnShowDep, btnInsertDep, btnDeleteDep;
     private myDatabase dbHelper;
 
     @Override
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         etDep_loc = findViewById(R.id.location);
         btnShowDep = findViewById(R.id.btnShowDep);
         btnInsertDep = findViewById(R.id.insertDep);
+        btnDeleteDep = findViewById(R.id.deleteDep);
 
         // Initialize Database Helper
         dbHelper = new myDatabase(this);
@@ -118,6 +119,20 @@ public class MainActivity extends AppCompatActivity {
 
                     showMessage("Data", buffer.toString());
                 }
+            }
+        });
+        // Delete department button click event
+        btnDeleteDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String dep_id = etDep_id.getText().toString();
+                if(dep_id.isEmpty()){
+                    showMessage("Error", "Please Enter Department Id to delete");
+                    return;
+                }
+                int dep_id_int = Integer.parseInt(dep_id);
+
+                dbHelper.deleteEmp(dep_id_int);
             }
         });
 

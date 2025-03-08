@@ -73,6 +73,12 @@ public class myDatabase extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Integer deleteEmp(int dep_id_int){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(EMPLOYEE_TABLE, E_COLUMN_6 + "=?", new String[]{"1"});
+    }
+
+
     public Cursor showDataDep() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + DEPARTMENT_TABLE, null);
